@@ -45,7 +45,7 @@
   ```
   ``` javascript
   // the javascript file
-  var btn = document.querySelector('#btn);
+  var btn = document.querySelector('#btn');
   btn.onclick = (e) => alert(e.target.tagName);
   ```
   * By attaching event listeners to the nodes in your JavaScript
