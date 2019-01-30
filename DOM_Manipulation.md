@@ -20,3 +20,32 @@
 - As mentioned above, you can find nodes in the DOM using query selectors
 - To create an element, use `document.createElement(tagName[, options])` 
   * `const div = document.createElement(‘div’)`; will create a div element. However this div has not been added to the webpage yet
+- To append this element, use `parentNode.appendChild(childNode)`
+  * i.e `parentNode.appendChild(div);`
+- To remove this element, `parentNode.removeChild(child)`
+  * This will remove child from parentNode on the DOM and returns reference to child
+  * i.e. `parentNode.removeChild(div);`
+- Once you have a reference to an element, as above, you can alter it in many ways
+  * `div.style.color = 'blue';`
+  * `div.setAttribute('id', 'theDiv');` sets the id attribute of our div to `theDiv`
+
+**What is the difference between a "nodelist" and an "array of nodes"?**
+- A "nodelist" looks like an array, but it is missing several methods that come with an array
+- A solution to this problem is to use the spread operator or Array.from() to convert a nodelist into an array
+
+**How do "events" and "listeners" work?**
+- "Events" are how you make your webpage dynamic. They are triggered by "listeners", and can fire when the page loads, when you click your mouse, when you push keys on your keyboard and more
+- There are three primary ways to use events
+  * By attaching scripts to event attributes on elements in the HTML document
+  * `<button onclick ="alert(this.tagName)">Click Me</button>`
+  * By setting the "on_event" property on the DOM object in your JS
+  ```html
+  // the html file
+  <button id="btn">Click Me</button>
+  ```
+  ``` javascript
+  // the javascript file
+  var btn = document.querySelector('#btn);
+  btn.onclick = (e) => alert(e.target.tagName);
+  ```
+  * By attaching event listeners to the nodes in your JavaScript
