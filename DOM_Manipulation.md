@@ -1,8 +1,8 @@
 # What is the DOM?
 - The Document Object Model is a tree-like representation of the contents on a webpage or document - a tree of "nodes".
 - One of the most useful abilities of JavaScript is the ability to manipulate the DOM
-- [From Wikipedia:](https://en.wikipedia.org/wiki/Document_Object_Model) it is an API (application programming interface) that treats an HTML or an XML document as a tree structure wherein each node is an object representing part of the document. DOM methods allow programmatic access to the tree; with them one can change the structure, style, or content of document. Nodes can have event handlers attached to them. 
-- ![DOM Model](https://www.w3schools.com/js/pic_htmltree.gif "DOM Model")
+- [From Wikipedia:](https://en.wikipedia.org/wiki/Document_Object_Model) it is an API (application programming interface) that treats an HTML or an XML document as a tree structure wherein each node is an object representing part of the document. DOM methods allow programmatic access to the tree; with them one can change the structure, style, or content of a document. Nodes can have event handlers attached to them. 
+![DOM Model](https://www.w3schools.com/js/pic_htmltree.gif "DOM Model")
 
 ``` html
 <div id="container">
@@ -30,21 +30,79 @@ In the above example `<div class="display></div>` is a "child" of `<div id="cont
 - Combined with “Query Selectors” this is how you target a node using JS
 - i.e. `document.querySelector(“.display”)`; would select the div above
 
-## Basic methods for finding/adding/removing and altering DOM nodes
+## DOM Methods
 - When your HTML is parsed by the browser, it is converted to the DOM. Primary diff is these nodes are objects that have many properties and methods attached to them. These props and methods are the primary tools we are going to use to manipulate our webpage with JS. Starting with Query Selectors - those that help you target the nodes
 
 ### Query Selectors
 - As mentioned above, you can find nodes in the DOM using query selectors
-- To create an element, use `document.createElement(tagName[, options])` 
-  * `const div = document.createElement(‘div’)`; will create a div element. However this div has not been added to the webpage yet
-- To append this element, use `parentNode.appendChild(childNode)`
+- `element.querySelector(selector)` returns reference to the first match of *selector*
+- `element.querySelectorAll(selector)` returns a "nodelist" containing references to all of the matches of the selectors.
+  * When using querySelectorAll, the return value is **not** an array, although it looks like one. You can convert the nodelist into an array using Array.from() or the spread operator
+
+### Element Creation 
+- To create an element, use `document.createElement(tagName[, options])`. This method creates the HTML element specified by tag name. Options means you can add some optional parameters to the function (don't worry about this right now)
+```javascript
+  const div = document.createElement(‘div’)
+  ```
+- The above will create a div element. However this div has not been added to the webpage yet (the function does not put your new element into the DOM - it creates in memory so you manipulate the element before placing it on the page). To actually place it on the page, use one of the following methods:
+
+### Append Elements
+- `parentNode.appendChild(childNode)` appends childNode as the last child of parentNode
   * i.e `parentNode.appendChild(div);`
-- To remove this element, `parentNode.removeChild(child)`
-  * This will remove child from parentNode on the DOM and returns reference to child
+- `parentNode.insertBefore(newNode,referenceNode)` inserts newNode into parentNode before referenceNode
+
+### Remove Elements
+- `parentNode.removeChild(child)` removes child from parentNode on the DOM and returns reference to child
   * i.e. `parentNode.removeChild(div);`
-- Once you have a reference to an element, as above, you can alter it in many ways
-  * `div.style.color = 'blue';`
-  * `div.setAttribute('id', 'theDiv');` sets the id attribute of our div to `theDiv`
+
+### Altering Elements
+- Once you have a reference to an element you can use that reference to alter the element's own properties. This allows you to do many useful alterations like adding/removing and altering attributes, changing classes, adding inline style info, etc.
+``` javascript
+const div = document.createElement('div')
+// create a new div referenced in the variable 'div'
+```
+- Adding inline style
+``` javascript
+div.style.color = 'blue';
+// adds the indicated style rule
+div.style.cssText = 'color: blue; background: white';
+// adds several style rules
+div.setAttribute('style', 'color: blue; background: white');
+// adds several style rules
+```
+
+### Editing Attributes
+``` javascript
+div.setAttribute('id', 'theDiv');
+// If id exists, update it to 'theDiv' else create an id with value 'theDiv'
+div.setAttribute('id');
+// returns the value of specified attribute, in this case, 'theDiv'
+div.removeAttribute('id');
+// removes specified attribute
+```
+### Working with Classes
+``` javascript
+div.classList.add('new');
+// adds class 'new' to your new div
+div.classList.remove('new');
+// remove 'new' class from div
+div.classList.toggle('active');
+// if div doesn't have class 'active' then add it. If it does, remove it
+```
+- It is often standard and more clean to toggle a CSS style rather than adding/removing inline css
+
+### Adding Text Content
+``` javascript
+div.textContent = 'Hello, World!'
+// creates a text node containing 'Hello, World!' and inserts it in div
+```
+
+### Adding HTML Content
+``` javascript
+div.innerHTML = '<span>Hello World!</span>';
+// renders the HTML inside div
+```
+- textContent is preferable for adding text; innerHTMl should be used sparingly
 
 ## What is the difference between a "nodelist" and an "array of nodes"?
 - A "nodelist" looks like an array, but it is missing several methods that come with an array
