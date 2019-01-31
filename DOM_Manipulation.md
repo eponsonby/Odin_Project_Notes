@@ -9,7 +9,7 @@
     <div class="controls"></div>
 </div>
 ```
-In the above example `<div class="display></div>` is a "child" of `<div id="container"></div>` and sibling to `<div class="controls"></div>`. Think of it like a family tree `<div id="container"></div>' is a **parent** with its children on the next level, each on their own "branch"
+In the above example `<div class="display></div>` is a "child" of `<div id="container"></div>` and sibling to `<div class="controls"></div>`. Think of it like a family tree `<div id="container"></div>` is a **parent** with its children on the next level, each on their own "branch"
 
 
 ## Node vs. Element
