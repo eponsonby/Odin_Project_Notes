@@ -2,8 +2,7 @@
 - The Document Object Model is a tree-like representation of the contents on a webpage or document - a tree of "nodes".
 - One of the most useful abilities of JavaScript is the ability to manipulate the DOM
 - [From Wikipedia:](https://en.wikipedia.org/wiki/Document_Object_Model) it is an API (application programming interface) that treats an HTML or an XML document as a tree structure wherein each node is an object representing part of the document. DOM methods allow programmatic access to the tree; with them one can change the structure, style, or content of a document. Nodes can have event handlers attached to them. 
-
-![DOM Model](https://www.w3schools.com/js/pic_htmltree.gif "DOM Model")
+- ![DOM Model](https://www.w3schools.com/js/pic_htmltree.gif "DOM Model")
 
 ``` html
 <div id="container">
