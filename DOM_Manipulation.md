@@ -1,6 +1,7 @@
 # What is the DOM?
 - The Document Object Model is a tree-like representation of the contents on a webpage or document - a tree of "nodes".
 - One of the most useful abilities of JavaScript is the ability to manipulate the DOM
+- The DOM is the browsers internal programmatic representation of the web page. It can be manipulated by languages like JS, changing the page without changing the HTML
 - [From Wikipedia:](https://en.wikipedia.org/wiki/Document_Object_Model) it is an API (application programming interface) that treats an HTML or an XML document as a tree structure wherein each node is an object representing part of the document. DOM methods allow programmatic access to the tree; with them one can change the structure, style, or content of a document. Nodes can have event handlers attached to them. 
 - ![DOM Model](https://www.w3schools.com/js/pic_htmltree.gif "DOM Model")
 
@@ -102,7 +103,7 @@ div.textContent = 'Hello, World!'
 div.innerHTML = '<span>Hello World!</span>';
 // renders the HTML inside div
 ```
-- textContent is preferable for adding text; innerHTMl should be used sparingly
+- textContent is preferable for adding text; innerHTML should be used sparingly
 
 ## What is the difference between a "nodelist" and an "array of nodes"?
 - A "nodelist" looks like an array, but it is missing several methods that come with an array
