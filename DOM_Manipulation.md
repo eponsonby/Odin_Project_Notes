@@ -32,7 +32,7 @@ In the above example `<div class="display></div>` is a "child" of `<div id="cont
 - i.e. `document.querySelector(“.display”)`; would select the div above
 
 ## DOM Methods
-- When your HTML is parsed by the browser, it is converted to the DOM. Primary diff is these nodes are objects that have many properties and methods attached to them. These props and methods are the primary tools we are going to use to manipulate our webpage with JS. Starting with Query Selectors - those that help you target the nodes
+- When your HTML is parsed by the browser, it is converted to the DOM. Primary diff is these nodes are objects that have many properties and methods attached to them. These properties and methods are the primary tools we are going to use to manipulate our webpage with JS. Starting with Query Selectors - those that help you target the nodes
 
 ### Query Selectors
 - As mentioned above, you can find nodes in the DOM using query selectors
